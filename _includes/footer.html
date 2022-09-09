@@ -1,0 +1,16 @@
+<footer class="footer">
+    <div class="center-block text-center">
+        <div class="social">
+            <ul>
+            {% for item in site.data.socials %}
+                <li>
+                    <a href="{{ item.url }}" role="button">
+                        <i class="fab fa-2x {{ item.icon-class }}" aria-hidden="true"></i>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="h4 title text-center">Eetu Vartia</div>
+    </div>
+</footer>
