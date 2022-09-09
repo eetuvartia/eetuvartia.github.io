@@ -1,0 +1,6 @@
+android:
+  name: "Android"
+  icon-class: "fa-android"
+ios:
+  name: "iOS"
+  icon-class: "fa-apple"

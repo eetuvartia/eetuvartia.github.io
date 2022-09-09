@@ -1,0 +1,46 @@
+<div class="mb-3 mt-3">
+  <div class="row mb-2 justify-content-center">
+    <h2 class="col-sm-12 col-md-10 col-lg-12 col-xl-10 col-xxl-9"><a href="{{ project.url }}">{{ project.name }}</a></h2>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-sm-12 col-md-10 col-lg-3 col-xl-2 col-xxl-2">
+        <div>
+          <img src="{{site.baseurl}}/assets/img/projects/{{ project.title }}/icon.png" width="100%" class="img-responsive fit-image" style="border-radius: 10%">
+        </div>
+        <div style="margin-top: 15px">
+          <strong>Platforms: </strong>
+          <div class="platforms-container">
+            <ul>
+              {% for platform_kvp in project.platforms %}
+                {% assign platform_id = platform_kvp[0] %}
+                {% assign platform_data = platform_kvp[1] %}
+                {% assign platform = site.data.platforms[platform_id] %}
+                <li>
+                  {% if platform_data.link %}
+                  <a href="{{ platform_data.link }}" role="button">
+                  {% endif %}
+                    <i class="fab fa-2x {{ platform.icon-class }}" aria-hidden="true"></i>
+                  {% if platform_data.link %}
+                  </a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <strong>Genres: </strong><p>{{ project.genres | join: ", " }}</p>
+          <strong>Developer: </strong>
+          <p>
+            {% assign developers = "" | split: ',' %}
+            {% for developer_id in project.developers %}
+              {% assign developer = site.data.companies[developer_id] | map: "name" %}
+              {% assign developers = developers | concat: developer%}
+            {% endfor %}
+            {{ developers | join: ', ' }}
+          </p>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7">
+      {{ project.content | markdownify }}
+    </div>
+  </div>
+</div>
