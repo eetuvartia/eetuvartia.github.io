@@ -1,3 +1,153 @@
-@import "theme/mixins";
-@import "theme/base";
-@import "theme/responsive";
+@import "vendor/bootstrap/stylesheets/bootstrap/functions";
+@import "vendor/bootstrap/stylesheets/bootstrap/variables";
+@import "vendor/bootstrap/stylesheets/bootstrap/mixins";
+@import "mixins";
+@import "print";
+
+
+//*************************** Theme Colours ***********************************/
+// Define theme colour scheme
+$theme-color: #4B6A78;
+$text-color: #3F4650;
+$text-color-secondary: #545E6C;
+$text-grey: #97AAC3;
+$divider: #e8e8e8;
+$lighter-grey: #ccc;
+$darker-grey: #666;
+$smoky-white: #f5f5f5;
+$heart: #fb866a;
+
+
+$background-color: #333;
+$text-color-primary: lighten($background-color , 30%);
+$text-color-primary-hover: lighten($text-color-primary , 15%);
+$footer-background-color: darken($background-color, 10%);
+
+//*************************** Bootstrap Colors ********************************/
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       darken($background-color, 10%)
+);
+
+$navbar-dark-color:                     lighten($background-color, 30%);
+$navbar-dark-hover-color:               lighten($background-color, 45%);
+$navbar-dark-active-color:              darken($white, 15%);
+$navbar-dark-disabled-color:            lighten($background-color, 15%);
+$navbar-dark-toggler-icon-bg:           url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+$navbar-dark-toggler-border-color:      $navbar-dark-color;
+
+$navbar-dark-brand-color:               $navbar-dark-color;
+$navbar-dark-brand-hover-color:         $navbar-dark-hover-color;
+
+@import 'vendor/bootstrap/stylesheets/bootstrap';
+
+//*************************** Theme Styles ************************************/
+
+
+body {
+    background-color: $background-color;
+    color: $text-color-primary;
+    a {
+        color: $text-color-primary;
+        text-decoration: none;
+        :hover {
+            color: $text-color-primary-hover;
+        }
+    }
+    a:hover {
+        color: $text-color-primary-hover;
+    }
+
+    // footer fix
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-content {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+	background-color: $footer-background-color;
+	padding: 60px 40px;
+	color: lighten($footer-background-color, 15%);
+
+    .social {
+        margin: 0;
+        padding: 0;
+        ul {
+            margin: 0;
+            padding: 5px;
+            li {
+                margin: 5px;
+                list-style: none outside none;
+                display: inline-block;
+            }
+        }
+        a {
+            color: lighten($footer-background-color, 15%);
+            :hover{
+                color: lighten($footer-background-color, 30%);
+            }
+            i {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+                text-align:center;
+                padding-top: 12px;
+                border-radius: 50%;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -o-border-radius: 50%;
+                transition: all ease 0.3s;
+                -moz-transition: all ease 0.3s;
+                -webkit-transition: all ease 0.3s;
+                -o-transition: all ease 0.3s;
+                -ms-transition: all ease 0.3s;
+            }
+        }
+    }
+}
+
+.platforms-container {
+    margin: 0;
+    padding: 0;
+    ul {
+        margin: 0;
+        padding: 5px;
+        li {
+            margin: 5px;
+            list-style: none outside none;
+            display: inline-block;
+        }
+    }
+    a {
+        i {
+            width: 40px;
+            height: 40px;
+            font-size: 22px;
+            text-align:center;
+            padding-top: 12px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -o-border-radius: 50%;
+            transition: all ease 0.3s;
+            -moz-transition: all ease 0.3s;
+            -webkit-transition: all ease 0.3s;
+            -o-transition: all ease 0.3s;
+            -ms-transition: all ease 0.3s;
+        }
+    }
+}
