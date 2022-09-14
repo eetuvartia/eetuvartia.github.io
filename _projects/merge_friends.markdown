@@ -1,5 +1,5 @@
 ---
-name: Merge Friends
+title: Merge Friends
 order: 5
 display: true
 platforms:
